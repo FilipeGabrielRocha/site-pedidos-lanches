@@ -1,0 +1,29 @@
+@import "../../../color-variables.scss";
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 40;
+  width: 100%;
+  background: $color-red;
+  padding: .8rem;
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    color: $color-white;
+    font-weight: 700;
+    background: transparent;
+    border: none;
+
+    svg {
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+      color: $color-white;
+    }
+  }
+}

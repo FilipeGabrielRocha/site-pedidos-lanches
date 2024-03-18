@@ -23,6 +23,6 @@ export class HeaderComponent implements OnInit {
   private checkRestaurantOpen():void {
     const data = new Date()
     const hour = data.getHours()
-    this.isRestaurantOpen = hour >= 18 && hour <22
+    this.isRestaurantOpen = hour >= 18 && hour < 22
   }
 }
