@@ -1,0 +1,54 @@
+@import "../../../color-variables.scss";
+
+.container-burguer {
+  display: flex;
+  gap: .8rem;
+
+  img {
+    border-radius: .6rem;
+    transition: all .3s ease-in-out;
+  }
+
+  img:hover {
+    transform: rotate(-2deg) scale(1.1);
+  }
+
+  .container-info {
+    .title {
+      font-weight: 700;
+    }
+
+    .description {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+
+    .container-btn-buy {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .8rem;
+      margin-top: 1.2rem;
+
+      .price {
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+      }
+
+      button {
+        background-color: #111827;
+        padding: 0 2rem;
+        border-radius: .4rem;
+        border: none;
+        cursor: pointer;
+
+        i {
+          color: $color-white;
+          font-size: 1.8rem;
+          line-height: 2.8rem;
+        }
+      }
+    }
+  }
+}

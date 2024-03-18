@@ -1,5 +1,19 @@
 <app-header />
 
+<main id="menu">
+  <h2 class="menu">
+    Conheça nosso menu
+  </h2>
+
+  <app-section-burger />
+
+  <div class="div-bebidas mx-auto max-w-7xl px-2 my-2">
+    <h2 class="font-bold text-3xl">Bedidas</h2>
+  </div>
+
+  <app-section-drink />
+</main>
+
 <div class="div-modal" id="cart-modal" [style.display]="showModal ? 'flex' : 'none'">
   <div class="container-modal">
     <h2>Meu Carrinho</h2>

@@ -1,5 +1,30 @@
 @import "../../../color-variables.scss";
 
+main {
+  .menu {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 3.6rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .div-bebidas {
+    margin: .8rem auto;
+    max-width: 1280px;
+    padding: 0 .8rem;
+
+    h2 {
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 3.6rem;
+      text-align: center;
+    }
+  }
+}
+
+
 .div-modal {
   display: none;
   align-items: center;
@@ -86,9 +111,16 @@
 }
 
 @media (min-width: 768px) {
-    .div-modal {
-      .container-modal{
-        min-width: 600px;
+  main {
+    .menu{
+      font-size: 3rem;
+      line-height: 3.6rem;
     }
   }
+
+  .div-modal {
+    .container-modal{
+      min-width: 600px;
+  }
+}
 }

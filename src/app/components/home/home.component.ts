@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { SectionBurgerComponent } from '../section-burger/section-burger.component';
+import { SectionDrinkComponent } from '../section-drink/section-drink.component';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +10,8 @@ import { FooterComponent } from '../footer/footer.component';
   imports: [
     HeaderComponent,
     FooterComponent,
+    SectionBurgerComponent,
+    SectionDrinkComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
