@@ -13,5 +13,16 @@ import { FooterComponent } from '../footer/footer.component';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  showModal:boolean = false
+
+  constructor(){}
+
+  openModal(){
+    if (this.showModal !== true){
+      this.showModal = true
+    } else {
+      this.showModal = false
+    }
+  }
 
 }

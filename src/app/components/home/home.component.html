@@ -1,3 +1,33 @@
 <app-header />
-<p>home works!</p>
-<app-footer />
+
+<div class="div-modal" id="cart-modal" [style.display]="showModal ? 'flex' : 'none'">
+  <div class="container-modal">
+    <h2>Meu Carrinho</h2>
+
+    <div id="cart-items" class="container-items"></div>
+
+    <p class="cart-total">
+      Total: <strong class="cart-total-strong" id="cart-total">0.00</strong>
+    </p>
+
+    <p class="address">Endereço de entregua:</p>
+    <input
+      type="text"
+      placeholder="Digite seu endereço de entrega"
+      id="address"
+    />
+
+    <p class="address-warn text-red-500 hidden" id="address-warn">
+      Digite seu endereço completo!
+    </p>
+
+    <div class="container-btns">
+      <button class="close-modal" id="close-modal-btn" (click)="openModal()">Fechar</button>
+      <button class="checkout-btn" id="checkout-btn" (click)="openModal()">
+        Finalizar pedido
+      </button>
+    </div>
+  </div>
+</div>
+
+<app-footer (openModalEvent)="openModal()" />
