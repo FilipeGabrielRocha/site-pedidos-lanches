@@ -1,1 +1,15 @@
-<p>container-drink works!</p>
+<div class="container-drink">
+  <img ngSrc={{ngSrc}} priority="true" width="112" height="112" alt={{altImg}}>
+
+  <div class="container-info">
+    <p class="title">{{nameDrink}}</p>
+    <p class="description">{{description}}</p>
+
+    <div class="container-btn-buy add-to-cart-btn">
+      <p class="price">R$ {{price}}</p>
+      <button class="add-to-cart-btn">
+        <i class="fa fa-cart-plus"></i>
+      </button>
+    </div>
+  </div>
+</div>
