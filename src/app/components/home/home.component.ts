@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
-import { SectionBurgerComponent } from '../section-burger/section-burger.component';
-import { SectionDrinkComponent } from '../section-drink/section-drink.component';
+import { ContainerItemsComponent } from '../container-items/container-items.component';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +9,7 @@ import { SectionDrinkComponent } from '../section-drink/section-drink.component'
   imports: [
     HeaderComponent,
     FooterComponent,
-    SectionBurgerComponent,
-    SectionDrinkComponent,
+    ContainerItemsComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

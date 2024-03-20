@@ -2,17 +2,17 @@ import { NgOptimizedImage } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-container-burguer',
+  selector: 'app-container-items',
   standalone: true,
   imports: [
     NgOptimizedImage,
   ],
-  templateUrl: './container-burguer.component.html',
-  styleUrl: './container-burguer.component.scss'
+  templateUrl: './container-items.component.html',
+  styleUrl: './container-items.component.scss'
 })
-export class ContainerBurguerComponent implements OnInit {
+export class ContainerItemsComponent implements OnInit {
   @Input()
-  nameBurguer:string = ""
+  name:string = ""
   @Input()
   altImg:string = ""
   @Input()
@@ -26,5 +26,4 @@ export class ContainerBurguerComponent implements OnInit {
 
   ngOnInit():void {
   }
-
 }
