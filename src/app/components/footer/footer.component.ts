@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -9,6 +9,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class FooterComponent {
   @Output() openModalEvent = new EventEmitter<void>();
+
+  @Input() cartItemsLength:number = 0
 
   constructor(){}
 

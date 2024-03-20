@@ -1,6 +1,6 @@
 <app-header />
 
-<main id="menu">
+<main>
   <h2 class="menu">Conheça nosso menu</h2>
 
   <section>
@@ -62,8 +62,8 @@
     />
   </section>
 
-  <div class="div-bebidas mx-auto max-w-7xl px-2 my-2">
-    <h2 class="font-bold text-3xl">Bedidas</h2>
+  <div class="div-bebidas">
+    <h2>Bedidas</h2>
   </div>
 
   <section>
@@ -112,40 +112,40 @@
   </section>
 </main>
 
-<div
-  class="div-modal"
-  id="cart-modal"
-  [style.display]="showModal ? 'flex' : 'none'"
->
+<div class="div-modal" [style.display]="showModal ? 'flex' : 'none'">
   <div class="container-modal">
     <h2>Meu Carrinho</h2>
 
     <div id="cart-items" class="container-items"></div>
 
     <p class="cart-total">
-      Total: <strong class="cart-total-strong" id="cart-total">0.00</strong>
+      Total: <strong class="cart-total-strong">0.00</strong>
     </p>
 
     <p class="address">Endereço de entregua:</p>
     <input
       type="text"
       placeholder="Digite seu endereço de entrega"
-      id="address"
     />
 
-    <p class="address-warn text-red-500 hidden" id="address-warn">
+    <p
+    class="address-warn text-red-500 hidden">
       Digite seu endereço completo!
     </p>
 
     <div class="container-btns">
-      <button class="close-modal" id="close-modal-btn" (click)="openModal()">
+      <button
+      class="close-modal"
+      (click)="openModal()">
         Fechar
       </button>
-      <button class="checkout-btn" id="checkout-btn" (click)="openModal()">
+      <button
+      class="checkout-btn"
+      (click)="openModal()">
         Finalizar pedido
       </button>
     </div>
   </div>
 </div>
 
-<app-footer (openModalEvent)="openModal()" />
+<app-footer [cartItemsLength]="getCartItemsLength()" (openModalEvent)="openModal()" />

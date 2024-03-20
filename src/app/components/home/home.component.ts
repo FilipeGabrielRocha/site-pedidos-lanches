@@ -21,6 +21,40 @@ export class HomeComponent {
 
   openModal(){
     this.showModal = !this.showModal
+
+    this.getCartItems()
+  }
+
+  getCartItems(){
+    const cartItems = ContainerItemsComponent.cartItems
+
+    const cartItemsElement = document.getElementById("cart-items")
+    if (cartItemsElement){
+      cartItemsElement.innerHTML = ""
+      cartItems.forEach(item => {
+        const itemElement = document.createElement('div')
+        itemElement.classList.add('cart-items')
+        itemElement.style.display = "flex"
+        itemElement.style.flexDirection = "column"
+        itemElement.style.justifyContent = "space-between"
+        itemElement.style.marginBottom = "1.6rem"
+        itemElement.innerHTML = `
+          <div class="container-cart" style="display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                    <p style="font-weight: 700;">${item.name}</p>
+                    <p>Quantidade: ${item.quantity}</p>
+                    <p style="font-weight: 600; margin-top: .8rem;">R$ ${(item.price * item.quantity).toFixed(2)}</p>
+                </div>
+                <button class="remove-from-cart-btn" style="background: transparent; border: none;" data-name="${item.name}">Remover</button>
+            </div>
+        `
+        cartItemsElement.appendChild(itemElement);
+      })
+    }
+  }
+
+  getCartItemsLength():number {
+    return ContainerItemsComponent.cartItems.length
   }
 
 }

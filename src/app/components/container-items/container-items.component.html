@@ -6,9 +6,9 @@
     <p class="title">{{name}}</p>
     <p class="description">{{description}}</p>
 
-    <div class="container-btn-buy add-to-cart-btn">
+    <div class="container-btn-buy">
       <p class="price">R$ {{price}}</p>
-      <button class="add-to-cart-btn" (click)="addToCart({name, price})">
+      <button (click)="addToCart({name, price})">
         <i class="fa fa-cart-plus"></i>
       </button>
     </div>

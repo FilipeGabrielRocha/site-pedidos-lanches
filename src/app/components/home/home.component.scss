@@ -11,9 +11,9 @@ main {
   }
 
   .div-bebidas {
-    margin: .8rem auto;
+    margin: 0.8rem auto;
     max-width: 1280px;
-    padding: 0 .8rem;
+    padding: 0 0.8rem;
 
     h2 {
       font-weight: 700;
@@ -23,7 +23,6 @@ main {
     }
   }
 }
-
 
 .div-modal {
   display: none;
@@ -37,112 +36,111 @@ main {
   left: 0;
   z-index: 99;
 
+  h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    margin-bottom: 0.8rem;
+  }
+
   .container-modal {
     background: $color-white;
     min-width: 90%;
     padding: 2rem;
-    border-radius: .6rem;
-  }
-
-    h2 {
-      text-align: center;
-      font-weight: 700;
-      font-size: 2.4rem;
-      line-height: 3.2rem;
-      margin-bottom: .8rem;
-    }
+    border-radius: 0.6rem;
 
     .container-items {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      margin-bottom: .8rem;
+      margin-bottom: 0.8rem;
+      max-height: 40rem;
+      overflow-y: auto;
+    }
+  }
+
+  .cart-total {
+    font-weight: 700;
+
+    .cart-total-strong {
+      font-weight: 400;
+    }
+  }
+
+  .address {
+    font-weight: 700;
+    margin-top: 1.6rem;
+  }
+
+  input {
+    width: 100%;
+    border-width: 0.2rem;
+    border-color: #000;
+    border-radius: 0.4rem;
+    padding: 0.4rem;
+    margin: 0.4rem 0;
+  }
+
+  .address-warn {
+    display: none;
+    color: $color-red;
+  }
+
+  .container-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    width: 100%;
+
+    .close-modal {
+      background: transparent;
+      border: none;
+      cursor: pointer;
     }
 
-    .cart-total {
-      font-weight: 700;
-
-      .cart-total-strong {
-        font-weight: 400;
-      }
+    .checkout-btn {
+      background: $color-green;
+      color: $color-white;
+      padding: 0.4rem 1.6rem;
+      border-radius: 0.4rem;
+      border: none;
+      cursor: pointer;
     }
-
-    .address {
-      font-weight: 700;
-      margin-top: 1.6rem;
-    }
-
-    input {
-      width: 100%;
-      border-width: .2rem;
-      border-color: #000;
-      border-radius: .4rem;
-      padding: .4rem;
-      margin: .4rem 0;
-    }
-
-    .address-warn {
-      display: none;
-      color: $color-red;
-    }
-
-    .container-btns {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 2rem;
-      width: 100%;
-
-      .close-modal {
-        background: transparent;
-        border: none;
-        cursor: pointer;
-      }
-
-      .checkout-btn {
-        background: $color-green;
-        color: $color-white;
-        padding: .4rem 1.6rem;
-        border-radius: .4rem;
-        border: none;
-        cursor: pointer;
-      }
-    }
+  }
 }
 
 section {
   display: grid;
   grid-template-columns: 1;
   gap: 2.8rem;
-  padding: 0 .8rem;
+  padding: 0 0.8rem;
   margin: 0 auto 6.4rem auto;
   max-width: 1280px;
 }
 
 @media (min-width: 768px) {
-  section {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 4rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  section {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 768px) {
   main {
-    .menu{
+    .menu {
       font-size: 3rem;
       line-height: 3.6rem;
     }
   }
 
   .div-modal {
-    .container-modal{
+    .container-modal {
       min-width: 600px;
+    }
+  }
+  section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4rem;
   }
 }
+
+@media (min-width: 1024px) {
+  section {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
