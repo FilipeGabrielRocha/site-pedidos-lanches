@@ -20,11 +20,7 @@ export class HomeComponent {
   constructor(){}
 
   openModal(){
-    if (this.showModal !== true){
-      this.showModal = true
-    } else {
-      this.showModal = false
-    }
+    this.showModal = !this.showModal
   }
 
 }
