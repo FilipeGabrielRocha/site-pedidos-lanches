@@ -1,5 +1,6 @@
 import { NgOptimizedImage } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-container-items',
@@ -23,7 +24,7 @@ export class ContainerItemsComponent {
     quantity: number
   }[] = []
 
-  constructor(){}
+  constructor(private homeComponent: HomeComponent){}
 
   addToCart(item: { name: string, price: number }):void {
     const itemIndex = ContainerItemsComponent.cartItems.find(cartItems => cartItems.name === item.name)
@@ -33,5 +34,6 @@ export class ContainerItemsComponent {
     } else {
       ContainerItemsComponent.cartItems.push({...item, quantity: 1})
     }
+    this.homeComponent.getCartItems()
   }
 }

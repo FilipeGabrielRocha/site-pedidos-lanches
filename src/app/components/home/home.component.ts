@@ -43,7 +43,9 @@ export class HomeComponent implements OnInit {
     this.showModal = !this.showModal;
 
     if(ContainerItemsComponent.cartItems.length > 0){
-      this.showCartItems = !this.showCartItems
+      this.showCartItems = true
+    } else {
+      this.showCartItems = false
     }
 
     this.getCartItems();
