@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ContainerItemsComponent } from '../container-items/container-items.component';
 import { SectionBurguersComponent } from '../section-burguers/section-burguers.component';
 import { SectionDrinksComponent } from '../section-drinks/section-drinks.component';
+import { NgClass, NgFor, NgIf } from '@angular/common';
+import { RestaurantService } from '../../services/restaurant.service';
 
 @Component({
   selector: 'app-home',
@@ -13,61 +15,72 @@ import { SectionDrinksComponent } from '../section-drinks/section-drinks.compone
     FooterComponent,
     SectionBurguersComponent,
     SectionDrinksComponent,
+    NgIf,
+    NgFor,
+    NgClass,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
-  showModal: boolean = false;
-  totalCash: number = 0;
+export class HomeComponent implements OnInit {
+  showModal:boolean = false;
+  showCartItems:boolean = false;
+  totalCash:number = 0;
+  items:any[] = []
+  isRestaurantOpen:boolean = false
+  isEmpty:boolean = false
 
-  constructor() {}
+  constructor(private restaurantService: RestaurantService) {
+    this.items = ContainerItemsComponent.cartItems
+  }
+
+  ngOnInit(): void {
+      let isRestaurantOpen = this.restaurantService.checkRestaurantOpen()
+      this.isRestaurantOpen = isRestaurantOpen
+  }
 
   openModal() {
     this.showModal = !this.showModal;
+
+    if(ContainerItemsComponent.cartItems.length > 0){
+      this.showCartItems = !this.showCartItems
+    }
 
     this.getCartItems();
   }
 
   getCartItems() {
     const cartItems = ContainerItemsComponent.cartItems;
-
-    const cartItemsElement = document.getElementById('cart-items');
-    if (cartItemsElement) {
-      cartItemsElement.innerHTML = '';
-      let total = 0
-      cartItems.forEach((item) => {
-        const itemElement = document.createElement('div');
-        itemElement.classList.add('cart-items');
-        itemElement.style.display = 'flex';
-        itemElement.style.flexDirection = 'column';
-        itemElement.style.justifyContent = 'space-between';
-        itemElement.style.marginBottom = '1.6rem';
-        itemElement.innerHTML = `
-          <div
-            class="container-cart"
-            style="display: flex;
-            align-items: center;
-            justify-content: space-between;"
-            >
-                <div>
-                    <p style="font-weight: 700;">${item.name}</p>
-                    <p>Quantidade: ${item.quantity}</p>
-                    <p style="font-weight: 600; margin-top: .8rem;">R$ ${(item.price*item.quantity).toFixed(2)}</p>
-                </div>
-                <button class="remove-from-cart-btn" style="background: transparent; border: none; cursor: pointer;">Remover</button>
-            </div>
-            `;
-
-        total += item.price * item.quantity
-        cartItemsElement.appendChild(itemElement);
-      });
-
-      this.totalCash = total
-    }
+    let total = 0
+    cartItems.forEach((item) => {
+      total += item.price * item.quantity
+    });
+    this.totalCash = total
   }
 
   getCartItemsLength(): number {
     return ContainerItemsComponent.cartItems.length;
+  }
+
+  removeToCart(quantity:number, index:number){
+    const cartItems = ContainerItemsComponent.cartItems;
+
+    if (quantity > 1){
+      cartItems[index].quantity--
+      this.getCartItems()
+      return
+    } else {
+      cartItems.splice(index, 1)
+      this.getCartItems()
+    }
+
+  }
+
+  btnCheckoutWarn(addressInput: string){
+    if (addressInput === ""){
+      this.isEmpty = true
+    } else {
+      this.isEmpty = false
+    }
   }
 }

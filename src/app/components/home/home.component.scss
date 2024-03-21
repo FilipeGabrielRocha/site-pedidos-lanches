@@ -47,6 +47,31 @@ main {
     margin-bottom: 0.8rem;
   }
 
+  .container-cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: .8rem;
+    margin-right: .8rem;
+
+    div {
+      .title {
+        font-weight: 700;
+      }
+
+      .price {
+        font-weight: 600;
+        margin-top: .8rem;
+      }
+    }
+
+    .remove-from-cart-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
   .container-modal {
     background: $color-white;
     min-width: 90%;
@@ -85,8 +110,16 @@ main {
     margin: 0.4rem 0;
   }
 
+  input.empty {
+    border-color: $color-red
+  }
+
   .address-warn {
     display: none;
+  }
+
+  .empty {
+    display: flex;
     color: $color-red;
   }
 
@@ -109,6 +142,15 @@ main {
       padding: 0.4rem 1.6rem;
       border-radius: 0.4rem;
       border: none;
+    }
+
+    .disable {
+      opacity: 0.5;
+      cursor: auto;
+    }
+
+    .active {
+      opacity: 1;
       cursor: pointer;
     }
   }

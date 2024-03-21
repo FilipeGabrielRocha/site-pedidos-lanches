@@ -1,5 +1,6 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RestaurantService } from '../../services/restaurant.service';
 
 @Component({
   selector: 'app-header',
@@ -14,15 +15,9 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   isRestaurantOpen:boolean = false;
 
-  constructor(){}
+  constructor(private restaurantService: RestaurantService){}
 
   ngOnInit(): void {
-      this.checkRestaurantOpen()
-  }
-
-  private checkRestaurantOpen():void {
-    const data = new Date()
-    const hour = data.getHours()
-    this.isRestaurantOpen = hour >= 18 && hour < 22
+      this.isRestaurantOpen = this.restaurantService.checkRestaurantOpen()
   }
 }

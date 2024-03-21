@@ -14,36 +14,55 @@
   <div class="container-modal">
     <h2>Meu Carrinho</h2>
 
-    <div id="cart-items" class="container-items"></div>
+    <div class="container-items" *ngIf="showCartItems">
+      <div *ngFor="let item of items; let i = index" class="container-cart">
+        <div>
+          <p class="title">{{ item.name }}</p>
+          <p>Quantidade: {{ item.quantity }}</p>
+          <p class="price">R$ {{ (item.price * item.quantity).toFixed(2) }}</p>
+        </div>
+        <button
+          class="remove-from-cart-btn"
+          (click)="removeToCart(item.quantity, i)"
+        >
+          Remover
+        </button>
+      </div>
+    </div>
 
     <p class="cart-total">
-      Total: R$ <strong class="cart-total-strong" id="cart-total">{{totalCash}}</strong>
+      Total: R$
+      <strong class="cart-total-strong">{{ totalCash.toFixed(2) }}</strong>
     </p>
 
     <p class="address">Endereço de entregua:</p>
     <input
       type="text"
       placeholder="Digite seu endereço de entrega"
+      #addressInput
+      (input)="btnCheckoutWarn(addressInput.value)"
+      [ngClass]="{ empty: isEmpty }"
     />
 
-    <p
-    class="address-warn text-red-500 hidden">
+    <p class="address-warn" [ngClass]="{ empty: isEmpty }">
       Digite seu endereço completo!
     </p>
 
     <div class="container-btns">
+      <button class="close-modal" (click)="openModal()">Fechar</button>
       <button
-      class="close-modal"
-      (click)="openModal()">
-        Fechar
-      </button>
-      <button
-      class="checkout-btn"
-      (click)="openModal()">
+        class="checkout-btn"
+        (click)="btnCheckoutWarn(addressInput.value)"
+        [ngClass]="{ active: isRestaurantOpen, disable: !isRestaurantOpen }"
+        [disabled]="!isRestaurantOpen"
+      >
         Finalizar pedido
       </button>
     </div>
   </div>
 </div>
 
-<app-footer [cartItemsLength]="getCartItemsLength()" (openModalEvent)="openModal()" />
+<app-footer
+  [cartItemsLength]="getCartItemsLength()"
+  (openModalEvent)="openModal()"
+/>
