@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ContainerItemsComponent } from '../container-items/container-items.component';
 
 @Component({
@@ -9,5 +9,4 @@ import { ContainerItemsComponent } from '../container-items/container-items.comp
   styleUrl: './section-burguers.component.scss'
 })
 export class SectionBurguersComponent {
-
 }

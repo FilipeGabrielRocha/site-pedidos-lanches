@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-container-items',
@@ -10,7 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './container-items.component.html',
   styleUrl: './container-items.component.scss'
 })
-export class ContainerItemsComponent implements OnInit {
+export class ContainerItemsComponent {
   @Input() name:string = ""
   @Input() altImg:string = ""
   @Input() ngSrc:string = ""
@@ -24,9 +24,6 @@ export class ContainerItemsComponent implements OnInit {
   }[] = []
 
   constructor(){}
-
-  ngOnInit():void {
-  }
 
   addToCart(item: { name: string, price: number }):void {
     const itemIndex = ContainerItemsComponent.cartItems.find(cartItems => cartItems.name === item.name)
