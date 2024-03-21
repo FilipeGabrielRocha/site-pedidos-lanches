@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ContainerItemsComponent } from '../container-items/container-items.component';
+import { SectionBurguersComponent } from '../section-burguers/section-burguers.component';
+import { SectionDrinksComponent } from '../section-drinks/section-drinks.component';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +11,8 @@ import { ContainerItemsComponent } from '../container-items/container-items.comp
   imports: [
     HeaderComponent,
     FooterComponent,
-    ContainerItemsComponent,
+    SectionBurguersComponent,
+    SectionDrinksComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -45,7 +48,7 @@ export class HomeComponent {
                     <p>Quantidade: ${item.quantity}</p>
                     <p style="font-weight: 600; margin-top: .8rem;">R$ ${(item.price * item.quantity).toFixed(2)}</p>
                 </div>
-                <button class="remove-from-cart-btn" style="background: transparent; border: none;" data-name="${item.name}">Remover</button>
+                <button (click)='removeToCart()' class="remove-from-cart-btn" style="background: transparent; border: none; cursor: pointer;">Remover</button>
             </div>
         `
         cartItemsElement.appendChild(itemElement);
@@ -55,6 +58,11 @@ export class HomeComponent {
 
   getCartItemsLength():number {
     return ContainerItemsComponent.cartItems.length
+  }
+
+  removeToCart(){
+    alert("clicou")
+    // const itemIndex = ContainerItemsComponent.cartItems.findIndex(item => console.log(item))
   }
 
 }

@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-container-items',
@@ -36,8 +36,5 @@ export class ContainerItemsComponent implements OnInit {
     } else {
       ContainerItemsComponent.cartItems.push({...item, quantity: 1})
     }
-
-    console.log("tamanho do carrinho",ContainerItemsComponent.cartItems.length);
-
   }
 }
