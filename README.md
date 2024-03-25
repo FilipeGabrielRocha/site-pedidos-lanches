@@ -1,6 +1,5 @@
 # Rocha's Lanches
-![image](https://github.com/FilipeGabrielRocha/site-pedidos-lanches/assets/94459039/019a1684-842a-44ec-ae49-cf6dfbbf6263)
-
+![image](https://github.com/FilipeGabrielRocha/site-pedidos-lanches/assets/94459039/474b289f-b46b-4bb1-9ff8-787e1d25595c)
 
 ## Descrição
 Rocha's Lanches é uma plataforma online de pedidos de lanches, desenvolvida utilizando Angular para facilitar a vida dos usuários que desejam fazer pedidos de comida rápida de forma conveniente e eficiente. Os usuários podem navegar pelos menus, selecionar os itens desejados e realizar seus pedidos com apenas alguns cliques.
