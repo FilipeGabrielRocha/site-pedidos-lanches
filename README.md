@@ -1,27 +1,45 @@
-# AngularSitePedidosLanches
+# Rocha's Lanches
+![image](https://github.com/FilipeGabrielRocha/site-pedidos-lanches/assets/94459039/019a1684-842a-44ec-ae49-cf6dfbbf6263)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
 
-## Development server
+## Descrição
+Rocha's Lanches é uma plataforma online de pedidos de lanches, desenvolvida utilizando Angular para facilitar a vida dos usuários que desejam fazer pedidos de comida rápida de forma conveniente e eficiente. Os usuários podem navegar pelos menus, selecionar os itens desejados e realizar seus pedidos com apenas alguns cliques.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Acesso ao site
+- https://rochaslanches.vercel.app
 
-## Code scaffolding
+## Funcionalidades
+- **Contador de Itens no Carrinho:** Exibe o número de itens adicionados ao carrinho para uma experiência de compra mais intuitiva.
+- **Adição no Carrinho:** Permite aos usuários adicionar itens ao carrinho de compras com facilidade.
+- **Cálculo Automático dos Valores:** O sistema calcula automaticamente os valores dos itens adicionados ao carrinho.
+- **Verificação de Disponibilidade da Loja:** Verifica se a loja está aberta para permitir que os usuários façam pedidos apenas durante o horário de funcionamento.
+- **Remoção de Itens do Carrinho:** Oferece aos usuários a opção de remover itens do carrinho, caso mudem de ideia ou desejem fazer alterações.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Responsividade
+A plataforma é totalmente responsiva, garantindo uma experiência consistente e de qualidade em dispositivos móveis, tablets e desktops.
 
-## Build
+## Modo de Instalação
+Para instalar Rocha's Lanches localmente, siga estas etapas:
+1. Clone este repositório para o seu ambiente local utilizando o seguinte comando no terminal:
+    ```
+    git clone https://github.com/seu-usuario/rochas-lanches.git
+    ```
+2. Navegue até o diretório do projeto:
+    ```
+    cd rochas-lanches
+   ```
+3. Instale as dependências do projeto:
+   ```
+   npm install
+   ```
+4. Inicie o servidor de desenvolvimento:
+   ```
+   ng serve
+   ```
+5. Abra o seu navegador e visite http://localhost:4200 para visualizar a aplicação.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Lincença
+Este projeto é distribuído sob a licença MIT.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Contribuições e Sugestões
+Se você tiver alguma sugestão de melhoria, nova funcionalidade ou encontrar algum problema, sinta-se à vontade para abrir uma issue ou enviar um pull request. Todas as contribuições são bem-vindas e serão consideradas para tornar o Rocha's Lanches ainda melhor!
