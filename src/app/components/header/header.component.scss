@@ -3,10 +3,19 @@
 .header {
   width: 100%;
   height: 42rem;
-  background: url('../../../assets/bg.png') center no-repeat;
+  background: url('../../../assets/lanchonete-espacial.jpg') center no-repeat;
   background-size: cover;
+  position: relative;
 
-  div {
+  .modal {
+    position: absolute;
+    background-color: #000;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+  }
+
+  .container-header {
     width: 100%;
     height: 100%;
     display: flex;
@@ -16,15 +25,18 @@
     color: $color-white;
 
     img {
+      z-index: 99;
       border-radius: 50%;
       transition: all .2s ease-in-out;
     }
 
     img:hover {
+      z-index: 99;
       transform: scale(1.1);
     }
 
     h1 {
+      z-index: 99;
       font-size: 3rem;
       font-weight: 700;
       line-height: 3.6rem;
@@ -33,10 +45,12 @@
     }
 
     p {
+      z-index: 99;
       font-weight: 500;
     }
 
     div {
+      z-index: 99;
       width: auto;
       height: auto;
       background-color: $color-red;

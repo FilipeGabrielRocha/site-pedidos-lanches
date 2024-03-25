@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ContainerItemsComponent } from '../container-items/container-items.component';
@@ -29,30 +29,28 @@ export class HomeComponent implements OnInit {
   items:any[] = []
   isRestaurantOpen:boolean = false
   isEmpty:boolean = false
+  isCartItemsEmpty = true
+  inputValue:string = ""
 
   constructor(private restaurantService: RestaurantService) {
     this.items = ContainerItemsComponent.cartItems
   }
 
   ngOnInit(): void {
-      let isRestaurantOpen = this.restaurantService.checkRestaurantOpen()
-      this.isRestaurantOpen = isRestaurantOpen
+    let isRestaurantOpen = this.restaurantService.checkRestaurantOpen()
+    this.isRestaurantOpen = isRestaurantOpen
   }
 
   openModal() {
     this.showModal = !this.showModal;
 
-    if(ContainerItemsComponent.cartItems.length > 0){
-      this.showCartItems = true
-    } else {
-      this.showCartItems = false
-    }
+    this.showCartItems = this.items.length > 0
 
     this.getCartItems();
   }
 
   getCartItems() {
-    const cartItems = ContainerItemsComponent.cartItems;
+    const cartItems = this.items;
     let total = 0
     cartItems.forEach((item) => {
       total += item.price * item.quantity
@@ -61,28 +59,45 @@ export class HomeComponent implements OnInit {
   }
 
   getCartItemsLength(): number {
-    return ContainerItemsComponent.cartItems.length;
+    return this.items.length;
   }
 
   removeToCart(quantity:number, index:number){
-    const cartItems = ContainerItemsComponent.cartItems;
+    const cartItems = this.items;
 
     if (quantity > 1){
       cartItems[index].quantity--
-      this.getCartItems()
-      return
     } else {
       cartItems.splice(index, 1)
-      this.getCartItems()
     }
-
+    this.getCartItems()
   }
 
-  btnCheckoutWarn(addressInput: string){
-    if (addressInput === ""){
+  checkEmpty($event:any){
+    if($event.target.value.trim() === ""){
       this.isEmpty = true
     } else {
       this.isEmpty = false
     }
+    this.inputValue = $event.target.value
+  }
+
+  teste(inputValue:string){
+    if(inputValue !== "" && this.items.length > 0){
+
+      ContainerItemsComponent.cartItems = []
+      this.items = ContainerItemsComponent.cartItems
+      this.totalCash = 0
+
+      this.clearInput()
+
+      this.openModal()
+    } else if(inputValue === "") {
+      this.isEmpty = true
+    }
+  }
+
+  clearInput(){
+    this.inputValue = ""
   }
 }

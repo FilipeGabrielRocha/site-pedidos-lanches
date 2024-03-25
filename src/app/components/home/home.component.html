@@ -39,8 +39,9 @@
     <input
       type="text"
       placeholder="Digite seu endereço de entrega"
-      #addressInput
-      (input)="btnCheckoutWarn(addressInput.value)"
+      value="{{inputValue}}"
+      (ngModel)="inputValue"
+      (input)="checkEmpty($event)"
       [ngClass]="{ empty: isEmpty }"
     />
 
@@ -52,7 +53,7 @@
       <button class="close-modal" (click)="openModal()">Fechar</button>
       <button
         class="checkout-btn"
-        (click)="btnCheckoutWarn(addressInput.value)"
+        (click)="teste(inputValue)"
         [ngClass]="{ active: isRestaurantOpen, disable: !isRestaurantOpen }"
         [disabled]="!isRestaurantOpen"
       >

@@ -10,6 +10,6 @@ export class RestaurantService {
   checkRestaurantOpen():boolean {
     const data = new Date()
     const hour = data.getHours()
-    return hour >= 18 && hour < 22
+    return hour >= 8 && hour < 22
   }
 }
